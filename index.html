@@ -1,1 +1,455 @@
 
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MINIVERSE | A Little World of Your Own</title>
+<style>
+:root {
+  --brown:#704225;
+  --dark:#492c1c;
+  --cream:#fff8ef;
+  --peach:#e9c5a2;
+  --orange:#bd8050;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:var(--cream);
+  color:var(--dark);
+}
+.top{
+  background:var(--brown);
+  color:white;
+  text-align:center;
+  padding:10px;
+  font-size:13px;
+}
+header{
+  background:#fffaf4;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 2px 12px #0000000d;
+}
+nav{
+  max-width:1200px;
+  margin:auto;
+  padding:14px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+}
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  color:var(--brown);
+}
+.logo img{
+  width:65px;
+  height:65px;
+  object-fit:contain;
+  border-radius:50%;
+}
+.logo strong{
+  font-family:Georgia,serif;
+  font-size:25px;
+  letter-spacing:3px;
+}
+.logo small{
+  display:block;
+  font-size:9px;
+  letter-spacing:2px;
+  margin-top:5px;
+}
+.links{
+  display:flex;
+  gap:22px;
+  flex-wrap:wrap;
+}
+.links a{
+  text-decoration:none;
+  color:var(--dark);
+  font-size:14px;
+  font-weight:bold;
+}
+.links a:hover{color:var(--orange)}
+.hero{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:35px;
+  padding:65px max(calc((100% - 1150px)/2),30px);
+  background:linear-gradient(120deg,#fff5e9,#f0d1b2);
+}
+.eyebrow{
+  color:#a56c43;
+  font-family:Georgia,serif;
+  font-style:italic;
+  font-size:22px;
+}
+.hero h1{
+  font-family:Georgia,serif;
+  font-size:48px;
+  line-height:1.15;
+  margin:15px 0;
+}
+.hero h1 span{color:#bd8050}
+.hero p{
+  line-height:1.8;
+  color:#80634e;
+  max-width:500px;
+}
+.hero img{
+  width:100%;
+  height:350px;
+  object-fit:cover;
+  border-radius:22px;
+  box-shadow:0 15px 35px #70422530;
+}
+.btn{
+  display:inline-block;
+  background:var(--brown);
+  color:white;
+  border:0;
+  border-radius:30px;
+  padding:14px 22px;
+  text-decoration:none;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:15px;
+}
+.btn:hover{background:#9b633a}
+.section{
+  max-width:1200px;
+  margin:auto;
+  padding:55px 22px;
+}
+.heading{text-align:center;margin-bottom:30px}
+.heading h2{
+  font-family:Georgia,serif;
+  font-size:30px;
+  color:var(--brown);
+}
+.heading p{color:#92765f}
+.features{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:white;
+  margin:25px auto;
+  max-width:1150px;
+  border-radius:18px;
+  padding:22px 10px;
+  box-shadow:0 5px 20px #70422512;
+}
+.feature{text-align:center;padding:10px}
+.feature b{display:block;margin-bottom:7px}
+.feature small{color:#92765f}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.card{
+  background:white;
+  border-radius:17px;
+  overflow:hidden;
+  box-shadow:0 5px 20px #70422513;
+  transition:.2s;
+}
+.card:hover{transform:translateY(-5px)}
+.card img{
+  width:100%;
+  height:190px;
+  object-fit:cover;
+}
+.card-content{padding:17px}
+.card h3{margin:0 0 8px}
+.card p{
+  color:#92765f;
+  font-size:13px;
+  line-height:1.6;
+}
+.price{color:#a65e2d;font-weight:bold}
+.products{background:#f6e7d8}
+.custom{
+  background:#fff0df;
+  padding:55px 25px;
+  text-align:center;
+}
+.custom h2{
+  font-family:Georgia,serif;
+  font-size:32px;
+}
+.custom p{
+  max-width:650px;
+  margin:15px auto;
+  line-height:1.8;
+  color:#80634e;
+}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:15px;
+  max-width:1100px;
+  margin:30px auto 0;
+}
+.step{
+  background:white;
+  border-radius:15px;
+  padding:22px 12px;
+}
+.step strong{
+  display:block;
+  font-size:25px;
+  color:#bd8050;
+  margin-bottom:10px;
+}
+.about{
+  text-align:center;
+  max-width:850px;
+  margin:auto;
+  padding:55px 22px;
+  line-height:1.8;
+}
+footer{
+  background:#492c1c;
+  color:white;
+  padding:35px 22px;
+  text-align:center;
+}
+footer p{color:#e8cfb8;font-size:13px}
+.cart{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  z-index:20;
+  border:0;
+  background:var(--brown);
+  color:white;
+  border-radius:50px;
+  padding:15px 20px;
+  cursor:pointer;
+  box-shadow:0 5px 20px #0003;
+}
+#cartBox{
+  display:none;
+  position:fixed;
+  right:20px;
+  bottom:85px;
+  width:300px;
+  max-width:calc(100vw - 40px);
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 5px 30px #0003;
+  z-index:30;
+}
+#cartBox.open{display:block}
+#cartItems{font-size:13px;line-height:2}
+@media(max-width:800px){
+  nav{flex-wrap:wrap}
+  .links{gap:12px}
+  .hero{grid-template-columns:1fr;padding:40px 22px}
+  .hero h1{font-size:37px}
+  .hero img{height:250px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:12px}
+  .features{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:450px){
+  .grid{grid-template-columns:1fr}
+  .card img{height:220px}
+  .logo strong{font-size:19px}
+}
+</style>
+</head>
+<body>
+
+<div class="top">
+✦ MINIVERSE – Biến những điều thân thuộc thành thế giới thu nhỏ ✦
+</div>
+
+<header>
+<nav>
+<a class="logo" href="#home">
+<img src="logo.png" alt="MINIVERSE Logo">
+<span>
+<strong>MINIVERSE</strong>
+<small>A LITTLE WORLD OF YOUR OWN</small>
+</span>
+</a>
+<div class="links">
+<a href="#home">Trang chủ</a>
+<a href="#categories">Danh mục</a>
+<a href="#products">Sản phẩm</a>
+<a href="#custom">Thiết kế riêng</a>
+<a href="#about">Về chúng tôi</a>
+</div>
+</nav>
+</header>
+
+<section class="hero" id="home">
+<div>
+<div class="eyebrow">Welcome to MINIVERSE ♡</div>
+<h1>Biến những điều thân thuộc thành <span>thế giới thu nhỏ.</span></h1>
+<p>
+MINIVERSE mang đến những mô hình mini cá nhân hóa,
+được chế tác dựa trên hình ảnh và ý tưởng của riêng bạn.
+Mỗi sản phẩm là một phiên bản thu nhỏ độc đáo,
+lưu giữ những câu chuyện và dấu ấn đáng nhớ.
+</p>
+<a href="#products" class="btn">Khám phá bộ sưu tập →</a>
+</div>
+<img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1000" alt="Không gian thu nhỏ">
+</section>
+
+<div class="features">
+<div class="feature">🎁<b>Cá nhân hóa</b><small>Thiết kế theo yêu cầu</small></div>
+<div class="feature">◇<b>Độc đáo</b><small>Mỗi mẫu một dấu ấn</small></div>
+<div class="feature">☆<b>Tỉ mỉ</b><small>Chú trọng chi tiết</small></div>
+<div class="feature">♡<b>Tận tâm</b><small>Tư vấn chu đáo</small></div>
+</div>
+
+<section class="section" id="categories">
+<div class="heading">
+<h2>Khám phá danh mục</h2>
+<p>Những thế giới nhỏ được tạo nên từ câu chuyện của bạn.</p>
+</div>
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=700" alt="Không gian mini">
+<div class="card-content"><h3>Không gian thu nhỏ</h3><p>Phòng ngủ, góc học tập, căn phòng trong mơ.</p></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1535268647677-300dbf3d78d1?w=700" alt="Nhân vật mini">
+<div class="card-content"><h3>Nhân vật cá nhân hóa</h3><p>Tái hiện nhân vật theo hình ảnh của bạn.</p></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?w=700" alt="Thú cưng">
+<div class="card-content"><h3>Mô hình thú cưng</h3><p>Lưu giữ hình ảnh thú cưng đáng yêu.</p></div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=700" alt="Cửa hàng mini">
+<div class="card-content"><h3>Mô hình theo yêu cầu</h3><p>Thu nhỏ cửa tiệm và địa điểm yêu thích.</p></div>
+</div>
+</div>
+</section>
+
+<section class="products" id="products">
+<div class="section">
+<div class="heading">
+<h2>Sản phẩm nổi bật</h2>
+<p>Lựa chọn mẫu yêu thích hoặc tạo nên mô hình của riêng bạn.</p>
+</div>
+<div class="grid">
+<div class="card">
+<img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=700" alt="Góc phòng nhỏ">
+<div class="card-content">
+<h3>Góc phòng nhỏ</h3>
+<p>Mô hình không gian cá nhân hóa.</p>
+<div class="price">Từ 990.000đ</div>
+<button class="btn" onclick="add('Góc phòng nhỏ',990000)">Thêm vào giỏ</button>
+</div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?w=700" alt="Nhân vật">
+<div class="card-content">
+<h3>Nhân vật cá nhân</h3>
+<p>Tạo hình theo ảnh tham khảo.</p>
+<div class="price">Từ 790.000đ</div>
+<button class="btn" onclick="add('Nhân vật cá nhân',790000)">Thêm vào giỏ</button>
+</div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=700" alt="Kỷ niệm">
+<div class="card-content">
+<h3>Kỷ niệm đặc biệt</h3>
+<p>Lưu giữ những khoảnh khắc ý nghĩa.</p>
+<div class="price">Từ 1.190.000đ</div>
+<button class="btn" onclick="add('Kỷ niệm đặc biệt',1190000)">Thêm vào giỏ</button>
+</div>
+</div>
+<div class="card">
+<img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=700" alt="Tiệm nhỏ">
+<div class="card-content">
+<h3>Tiệm nhỏ trong mơ</h3>
+<p>Thu nhỏ quán cà phê hoặc cửa hàng.</p>
+<div class="price">Từ 1.590.000đ</div>
+<button class="btn" onclick="add('Tiệm nhỏ trong mơ',1590000)">Thêm vào giỏ</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="custom" id="custom">
+<h2>Tạo nên thế giới thu nhỏ của riêng bạn</h2>
+<p>
+Bạn chỉ cần chia sẻ hình ảnh, câu chuyện hoặc ý tưởng.
+MINIVERSE sẽ tư vấn thiết kế và dự toán chi phí
+trước khi bắt đầu chế tác.
+</p>
+<a class="btn" href="mailto:miniverse@example.com?subject=Tu%20van%20mo%20hinh%20MINIVERSE">Bắt đầu thiết kế riêng →</a>
+<div class="steps">
+<div class="step"><strong>01</strong><b>Tiếp nhận</b><p>Ghi nhận ý tưởng</p></div>
+<div class="step"><strong>02</strong><b>Lên thiết kế</b><p>Thống nhất mẫu</p></div>
+<div class="step"><strong>03</strong><b>Chế tác</b><p>Hoàn thiện mô hình</p></div>
+<div class="step"><strong>04</strong><b>Bàn giao</b><p>Kiểm tra và đóng gói</p></div>
+</div>
+</section>
+
+<section class="about" id="about">
+<h2>Về MINIVERSE</h2>
+<p>
+MINIVERSE được xây dựng với mong muốn lưu giữ
+những điều bình dị theo một cách đặc biệt.
+Từ căn phòng thân quen, thú cưng đáng yêu đến
+những khoảnh khắc đáng nhớ, chúng tôi biến ý tưởng
+của bạn thành một thế giới thu nhỏ giàu cảm xúc.
+</p>
+</section>
+
+<footer>
+<h2>MINIVERSE</h2>
+<p>A Little World of Your Own</p>
+<p>Email: miniverse@example.com</p>
+<p>Facebook: MINIVERSE | Instagram: @miniverse</p>
+<p>© 2026 MINIVERSE. All rights reserved.</p>
+</footer>
+
+<button class="cart" onclick="toggleCart()">🛒 Giỏ hàng (<span id="count">0</span>)</button>
+<div id="cartBox">
+<button onclick="toggleCart()" style="float:right">✕</button>
+<h3>Giỏ hàng</h3>
+<div id="cartItems">Chưa có sản phẩm.</div>
+<p><b>Tổng: <span id="total">0đ</span></b></p>
+</div>
+
+<script>
+let cart=[];
+function add(name,price){
+ cart.push({name,price});
+ document.getElementById('count').textContent=cart.length;
+ render();
+ document.getElementById('cartBox').classList.add('open');
+}
+function render(){
+ document.getElementById('cartItems').innerHTML=cart.length?
+ cart.map(x=>x.name+' - '+x.price.toLocaleString('vi-VN')+'đ').join('<br>'):
+ 'Chưa có sản phẩm.';
+ let total=cart.reduce((s,x)=>s+x.price,0);
+ document.getElementById('total').textContent=total.toLocaleString('vi-VN')+'đ';
+}
+function toggleCart(){
+ document.getElementById('cartBox').classList.toggle('open');
+}
+</script>
+</body>
+</html>
+
